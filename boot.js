@@ -90,7 +90,7 @@
   window.TTCF = { version: '0.3-test', stats: function() { return stats; },
     disable: function(){ try{localStorage.setItem('ttcf-enabled','0');}catch(e){} } };
   var official = document.createElement('script');
-  official.src = 'https://cdn.jsdelivr.net/npm/@foxreis/tizentube/dist/userScript.js';
+  official.nonce = (document.currentScript && document.currentScript.nonce) || (document.querySelector('script[nonce]') && document.querySelector('script[nonce]').nonce) || '';\n  official.src = 'https://cdn.jsdelivr.net/npm/@foxreis/tizentube/dist/userScript.js';
   official.onload = function(){ console.info('[TTCF] official TizenTube loaded; content filter active'); };
   official.onerror = function(){ console.error('[TTCF] original TizenTube script failed'); };
   (document.head || document.documentElement).appendChild(official);
